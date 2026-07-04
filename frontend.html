@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adsverz | Smart Campus Media Network</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Global Styles -->
+    <style>
+        :root {
+            --neon-green: #deff9a;
+            --logo-red: #CC0000;
+            --bg-dark: #050505;
+            --card-dark: #0f0f0f;
+            --text-gray: #94a3b8;
+        }
+
+        * { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .accent-text { color: var(--neon-green); }
+        .red-accent { color: var(--logo-red); }
+        .accent-bg { background-color: var(--neon-green); color: #000; }
+
+        .pricing-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--neon-green);
+            box-shadow: 0 20px 40px rgba(222, 255, 154, 0.1);
+        }
+
+        .bmc-item {
+            background: #ffffff;
+            color: #000;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 3px solid #000;
+            box-shadow: 8px 8px 0px 0px #000;
+            transition: all 0.2s ease;
+        }
+
+        .bmc-item:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px #000;
+        }
+
+        .status-pulse {
+            width: 10px;
+            height: 10px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(222, 255, 154, 0.05) 0%, transparent 70%);
+        }
+    </style>
+</head>
+
+<body class="grid-bg">
+    <!-- ================= TOP FEATURE NAV ================= -->
+<div class="hidden xl:flex w-full bg-black border-b border-white/5 px-16 py-3 justify-center gap-14 text-[11px] font-black uppercase tracking-widest text-gray-400">
+
+    <a href="#home" class="hover:text-white transition">Start</a>
+    <a href="#ecosystem" class="hover:text-white transition">Governance</a>
+    <a href="#about-us" class="hover:text-white transition">About Us</a>
+    <a href="#nodes" class="hover:text-white transition">Network</a>
+    <a href="#pricing" class="hover:text-white transition">Rate Card</a>
+
+</div>
+<!-- ================= END TOP FEATURE NAV ================= -->
+
+<!-- NAVIGATION -->
+<!-- NAVIGATION -->
+<nav class="fixed top-0 w-full z-[100] py-5 px-8 md:px-16 flex justify-between items-center glass border-b border-white/5">
+
+    <!-- LEFT: LOGO + BRAND -->
+    <div class="flex items-center gap-4">
+        <!-- Logo Image -->
+        <img 
+            src="assets/logo.png" 
+            alt="Adsverz Logo" 
+            class="w-10 h-10 rounded-lg"
+        />
+
+        <!-- Brand Text -->
+        <div class="flex flex-col">
+            <span class="text-2xl font-black tracking-tighter leading-none">
+                <span class="red-accent">ADSVERZ</span><span class="accent-text">.</span>
+            </span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500">
+                Every business needs a boost
+            </span>
+        </div>
+    </div>
+
+    <!-- CENTER: NAV LINKS -->
+    <div class="hidden xl:flex space-x-10 text-[11px] font-black uppercase tracking-widest text-gray-400">
+        <a href="#home" class="hover:text-white transition">Start</a>
+        <a href="#ecosystem" class="hover:text-white transition">Governance</a>
+        <a href="#nodes" class="hover:text-white transition">Network</a>
+        <a href="#pricing" class="hover:text-white transition">Rate Card</a>
+        <a href="#bmc" class="hover:text-white transition">Strategy</a>
+    </div>
+
+    <!-- RIGHT: CLIENT ACTIONS -->
+    <div class="flex gap-4">
+        <button class="glass px-7 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-white/5 transition">
+            Client Register
+        </button>
+
+        <button class="accent-bg px-7 py-3 rounded-full font-black text-xs uppercase tracking-widest shadow-lg shadow-[#deff9a]/20 hover:scale-105 transition">
+            Client Login
+        </button>
+    </div>
+
+</nav>
+<!-- HERO SECTION -->
+<section id="home" class="relative min-h-screen flex pt-32 flex-col justify-center px-8 md:px-24 hero-gradient">
+    <div class="max-w-6xl mt-20">
+
+        <!-- STATUS PILL -->
+        <div class="inline-flex items-center gap-3 glass px-5 py-2 rounded-full mb-10">
+            <span class="status-pulse"></span>
+            <span class="text-[10px] font-black tracking-widest uppercase text-gray-400">
+                Adsverz Cloud Engine Active | 12 Campus Nodes Online
+            </span>
+        </div>
+
+        <!-- MAIN HEADLINE -->
+        <h1 class="text-7xl md:text-[9.5rem] font-black mb-4 leading-[0.85] tracking-tighter uppercase">
+            ADVERTISE <span class="accent-text">SMART.</span><br>
+            GROW <span class="italic underline decoration-red-600 decoration-[10px] md:decoration-[18px] underline-offset-[16px]">
+                FASTER.
+            </span>
+        </h1>
+
+        <!-- NEW MISSION LINE -->
+        <p class="text-sm md:text-base font-black uppercase tracking-widest text-gray-400 mt-6">
+            Your success. Our mission.
+        </p>
+
+        <!-- DESCRIPTION -->
+        <p class="text-xl md:text-3xl text-gray-400 max-w-3xl mt-10 font-medium leading-relaxed">
+            The only high-frequency digital media network in Bengaluru dedicated exclusively to
+            <span class="text-white">Professional Growth</span> and
+            <span class="text-white">Tech Innovation.</span>
+        </p>
+
+        <!-- CTA BUTTONS -->
+        <div class="flex flex-wrap gap-6 mt-16">
+            <a href="#pricing"
+               class="accent-bg px-12 py-6 rounded-2xl font-black text-xl hover:bg-white transition flex items-center gap-4 group">
+                Book Ad Slot
+                <i class="fa-solid fa-arrow-right group-hover:translate-x-2 transition"></i>
+            </a>
+
+            <a href="#ecosystem"
+               class="glass px-12 py-6 rounded-2xl font-black text-xl hover:bg-white/5 transition border-white/10">
+                Our Mandate
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- NETWORK LIVE STATUS -->
+<section id="nodes" class="py-32 px-8 bg-black/30">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- HEADER -->
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <h2 class="text-5xl font-black italic tracking-tighter uppercase mb-4">
+                    Live Network <span class="accent-text">Status.</span>
+                </h2>
+                <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">
+                    Real-time node monitoring from Bengaluru HQ
+                </p>
+            </div>
+
+            <!-- IMPRESSION CAPACITY -->
+            <div class="hidden md:block glass px-6 py-3 rounded-2xl border-white/10">
+                <span class="text-xs font-black uppercase tracking-tighter">
+                    Total Impression Capacity:
+                    <span class="text-white text-lg">25k/mo</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- NODE GRID -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <!-- RVCE -->
+            <div class="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <span class="text-[10px] font-black text-gray-500 uppercase">Node ID: RVCE-01</span>
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                </div>
+                <p class="font-bold text-sm">RV College - Cafeteria</p>
+                <div class="h-1 bg-white/10 w-full rounded-full overflow-hidden">
+                    <div class="h-full bg-[#deff9a] w-[85%]"></div>
+                </div>
+            </div>
+
+            <!-- PESU -->
+            <div class="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <span class="text-[10px] font-black text-gray-500 uppercase">Node ID: PESU-01</span>
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                </div>
+                <p class="font-bold text-sm">PES University - Block A</p>
+                <div class="h-1 bg-white/10 w-full rounded-full overflow-hidden">
+                    <div class="h-full bg-[#deff9a] w-[92%]"></div>
+                </div>
+            </div>
+
+            <!-- BMSIT -->
+            <div class="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <span class="text-[10px] font-black text-gray-500 uppercase">Node ID: BMS-03</span>
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                </div>
+                <p class="font-bold text-sm">BMSIT - Main Plaza</p>
+                <div class="h-1 bg-white/10 w-full rounded-full overflow-hidden">
+                    <div class="h-full bg-[#deff9a] w-[60%]"></div>
+                </div>
+            </div>
+
+            <!-- ACHARYA INSTITUTE OF TECHNOLOGY -->
+            <div class="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
+                <div class="flex justify-between items-start">
+                    <span class="text-[10px] font-black text-gray-500 uppercase">Node ID: AIT-01</span>
+                    <div class="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                </div>
+                <p class="font-bold text-sm">Acharya Institute of Technology - Gate 1</p>
+                <div class="h-1 bg-white/10 w-full rounded-full overflow-hidden">
+                    <div class="h-full bg-[#deff9a] w-[70%]"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+  <!-- GOVERNANCE & FOCUS -->
+    <section id="ecosystem" class="py-32 px-8 bg-black/50 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-6xl font-black mb-8 leading-tight tracking-tighter">Strict <span class="accent-text">Professional</span><br>Curation Policy.</h2>
+                    <p class="text-xl text-gray-400 mb-8 font-medium leading-relaxed">
+                        To maintain institutional harmony, Adsverz operates on a "Career-First" mandate. We eliminate digital noise to focus on what matters to students.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="glass p-8 rounded-3xl border-green-500/20 bg-green-500/5">
+                            <h4 class="text-[#deff9a] font-black text-xs uppercase mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Approved Categories
+                            </h4>
+                            <ul class="text-sm space-y-3 font-bold text-gray-300">
+                                <li>Laptops & Computing</li>
+                                <li>Upskilling Certificates</li>
+                                <li>Career & Job Platforms</li>
+                                <li>Student Banking & SaaS</li>
+                            </ul>
+                        </div>
+                        <div class="glass p-8 rounded-3xl border-red-500/20 bg-red-500/5">
+                            <h4 class="text-red-500 font-black text-xs uppercase mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-xmark"></i> Restricted Content
+                            </h4>
+                            <ul class="text-sm space-y-3 font-bold text-gray-500">
+                                <li>Non-local F&B Outlets</li>
+                                <li>Fast Fashion / Lifestyle</li>
+                                <li>Gaming / Betting Apps</li>
+                                <li>General Entertainment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass p-10 rounded-3xl border-white/5 hover:border-[#deff9a]/30 transition group">
+                        <i class="fa-solid fa-laptop text-4xl accent-text mb-6 group-hover:scale-110 transition"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">Tech Hardware</h3>
+                        <p class="text-sm text-gray-500 font-medium">Laptops, peripherals, and engineering tools for 50k+ students.</p>
+                    </div>
+                    <div class="glass p-10 rounded-3xl border-white/5 hover:border-[#deff9a]/30 transition group">
+                        <i class="fa-solid fa-graduation-cap text-4xl accent-text mb-6 group-hover:scale-110 transition"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">EdTech Giants</h3>
+                        <p class="text-sm text-gray-500 font-medium">Promote certificates and bootcamps at the exact point of intent.</p>
+                    </div>
+                    <div class="glass p-10 rounded-3xl border-white/5 hover:border-[#deff9a]/30 transition group">
+                        <i class="fa-solid fa-mobile-screen text-4xl accent-text mb-6 group-hover:scale-110 transition"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">Growth Apps</h3>
+                        <p class="text-sm text-gray-500 font-medium">LinkedIn, Glassdoor, and productivity tools for the modern student.</p>
+                    </div>
+                    <div class="glass p-10 rounded-3xl border-white/5 hover:border-[#deff9a]/30 transition group">
+                        <i class="fa-solid fa-microchip text-4xl accent-text mb-6 group-hover:scale-110 transition"></i>
+                        <h3 class="text-xl font-bold mb-3 text-white">SaaS & AI</h3>
+                        <p class="text-sm text-gray-500 font-medium">Target early-adopters with coding copilots and cloud software.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- RATE CARD -->
+    <section id="pricing" class="py-32 px-8 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-7xl font-black mb-4 tracking-tighter uppercase italic">The Rate <span class="accent-text">Card.</span></h2>
+                <p class="text-gray-500 text-lg font-bold uppercase tracking-widest">Transparent monthly subscriptions for educational brands.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                <!-- Skill Launcher -->
+                <div class="glass p-12 rounded-[3rem] pricing-card transition duration-500 flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-black mb-2">Skill Launcher</h3>
+                        <p class="text-xs font-black text-gray-500 mb-10 tracking-widest uppercase">Local Training Hubs</p>
+                        <div class="mb-10">
+                            <span class="text-6xl font-black italic">₹8k</span>
+                            <span class="text-gray-600 text-sm font-bold"> /mo per campus</span>
+                        </div>
+                        <ul class="space-y-5 text-gray-400 font-bold text-sm">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> 15s Static Ad Loop</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Single Department Focus</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> QR Performance Tracking</li>
+                        </ul>
+                    </div>
+                    <button class="mt-16 w-full py-5 rounded-2xl border-2 border-[#deff9a] accent-text font-black hover:bg-[#deff9a] hover:text-black transition uppercase tracking-widest text-xs">Request Slot</button>
+                </div>
+
+                <!-- Tech Domination -->
+                <div class="glass p-12 rounded-[3rem] border-2 border-[#deff9a] pricing-card scale-105 transition duration-500 flex flex-col relative bg-[#deff9a]/5">
+                    <div class="absolute -top-5 left-1/2 -translate-x-1/2 accent-bg px-8 py-1.5 rounded-full text-[10px] font-black tracking-[0.2em] uppercase">Recommended for Tech Brands</div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-black mb-2 text-[#deff9a]">Tech Titan</h3>
+                        <p class="text-xs font-black text-gray-400 mb-10 tracking-widest uppercase italic">High Frequency Hardware & SaaS</p>
+                        <div class="mb-10">
+                            <span class="text-6xl font-black italic">₹20k</span>
+                            <span class="text-gray-600 text-sm font-bold"> /mo per campus</span>
+                        </div>
+                        <ul class="space-y-5 text-gray-300 font-bold text-sm">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> 30s 4K Motion Graphics</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Prime Cafeteria Placement</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Product Launch Mentions</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Reach Data Reports</li>
+                        </ul>
+                    </div>
+                    <button class="mt-16 w-full accent-bg py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition shadow-xl shadow-[#deff9a]/20">Request Slot</button>
+                </div>
+
+                <!-- Network Leader -->
+                <div class="glass p-12 rounded-[3rem] pricing-card transition duration-500 flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-black mb-2">Network Leader</h3>
+                        <p class="text-xs font-black text-gray-500 mb-10 tracking-widest uppercase">Multi-Campus Blitz</p>
+                        <div class="mb-10">
+                            <span class="text-6xl font-black italic">₹45k</span>
+                            <span class="text-gray-600 text-sm font-bold"> /mo / 3 campuses</span>
+                        </div>
+                        <ul class="space-y-5 text-gray-400 font-bold text-sm">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Priority Network-Wide Sync</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Career Workshop Inclusion</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check accent-text"></i> Direct App-Install QR Links</li>
+                        </ul>
+                    </div>
+                    <button class="mt-16 w-full py-5 rounded-2xl border-2 border-[#deff9a] accent-text font-black hover:bg-[#deff9a] hover:text-black transition uppercase tracking-widest text-xs">Request Slot</button>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- BUSINESS MODEL CANVAS -->
+    <section id="bmc" class="py-32 px-8 bg-white text-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-7xl font-black italic tracking-tighter uppercase leading-[0.8] mb-6">Strategy <span class="text-gray-300">&</span> Architecture.</h2>
+                    <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">A blueprint for professional campus integration.</p>
+                </div>
+                <div class="text-right glass border-black/10 p-4 rounded-xl">
+                    <p class="text-[10px] font-black uppercase text-gray-400">Institutional Governance Code: ADZ-BENG-001</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 md:grid-rows-2 gap-4">
+                <!-- Partners -->
+                <div class="bmc-item md:row-span-2 flex flex-col">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-6 flex items-center gap-2 border-b-2 border-black pb-2">Key Partners</h4>
+                    <div class="space-y-4 text-xs font-black uppercase leading-tight flex-grow">
+                        <div class="p-3 bg-gray-50 rounded">
+                            <p class="text-gray-400 mb-1 italic">Campuses</p>
+                            <p>RVCE, PESU, BMSIT, JAIN UNIVERSITY</p>
+                        </div>
+                        <div class="p-3 bg-gray-50 rounded">
+                            <p class="text-gray-400 mb-1 italic">Advertisers</p>
+                            <p>DELL, APPLE, COURSERA, LINKEDIN</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Activities -->
+                <div class="bmc-item">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Activities</h4>
+                    <p class="text-xs font-bold leading-relaxed">Network installation, Ad-CMS engineering, Educational content curation, Brand onboarding.</p>
+                </div>
+                <!-- Value Prop -->
+                <div class="bmc-item md:row-span-2 bg-[#deff9a] border-black flex flex-col shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-6 flex items-center gap-2 border-b-2 border-black pb-2">Value Prop</h4>
+                    <div class="space-y-6 flex-grow">
+                        <div>
+                            <p class="text-[9px] font-black uppercase text-black/50 mb-1 tracking-widest">For Institutions</p>
+                            <p class="text-sm font-black leading-tight">5% Profit Share + Free Modern Infrastructure + Zero Distraction Environment.</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] font-black uppercase text-black/50 mb-1 tracking-widest">For Students</p>
+                            <p class="text-sm font-black leading-tight">Exclusive deals on high-end laptops & premium professional certifications.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Relationships -->
+                <div class="bmc-item">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Relationships</h4>
+                    <p class="text-xs font-bold">Self-service dashboard for brands, Real-time analytics, Long-term campus MoUs.</p>
+                </div>
+                <!-- Customer Segments -->
+                <div class="bmc-item md:row-span-2 flex flex-col">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-6 flex items-center gap-2 border-b-2 border-black pb-2">Segments</h4>
+                    <div class="space-y-4 text-xs font-black uppercase leading-tight flex-grow">
+                        <p><strong>EdTech:</strong> Giants seeking verified student users.</p>
+                        <p><strong>Tech Hardware:</strong> Brands selling Laptops & Accessories.</p>
+                        <p><strong>Career Apps:</strong> Resume and Job board tools.</p>
+                    </div>
+                </div>
+                <!-- Resources -->
+                <div class="bmc-item">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Resources</h4>
+                    <p class="text-xs font-bold">Cloud CMS, Prime Campus Estate, IoT Ad-tech hardware, Bengaluru Sales Team.</p>
+                </div>
+                <!-- Channels -->
+                <div class="bmc-item">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Channels</h4>
+                    <p class="text-xs font-bold">Adsverz Web Platform, Direct B2B Sales, Placement Cell Partnerships.</p>
+                </div>
+                <!-- Cost -->
+                <div class="bmc-item md:col-span-2">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Cost Structure</h4>
+                    <p class="text-xs font-bold">IoT Hardware R&D, Electricity/ISP, Sales Commission, Profit-share to Colleges, Cloud Maintenance.</p>
+                </div>
+                <!-- Revenue -->
+                <div class="bmc-item md:col-span-3">
+                    <h4 class="font-black text-[10px] uppercase tracking-[0.2em] mb-4 flex items-center gap-2 border-b-2 border-black pb-2">Revenue Streams</h4>
+                    <p class="text-xs font-bold">Monthly Ad Rentals (₹8k-45k), Creative Services, Sponsored 'Career-Tips' Takeovers, App-Install Leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- ================= ABOUT ADSVERZ (MAIN SECTION) ================= -->
+<section id="about-us" class="py-32 px-8 bg-black/50 border-y border-white/5">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-20">
+            <h2 class="text-6xl font-black tracking-tighter uppercase mb-6">
+                About <span class="accent-text">Adsverz.</span>
+            </h2>
+            <p class="text-xl text-gray-400 font-medium leading-relaxed">
+                Adsverz is building India’s first professional-first campus media
+                infrastructure — engineered to connect brands and students at the
+                moment of career intent.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- Mission -->
+            <div class="glass p-10 rounded-3xl border-white/10 hover:border-[#deff9a]/30 transition">
+                <h3 class="text-sm font-black uppercase tracking-widest text-[#deff9a] mb-4">
+                    Our Mission
+                </h3>
+                <p class="text-gray-400 font-medium leading-relaxed">
+                    To empower students with relevant, career-focused opportunities
+                    while helping brands achieve ethical, measurable, and high-impact
+                    visibility inside premium campuses.
+                </p>
+            </div>
+
+            <!-- Vision -->
+            <div class="glass p-10 rounded-3xl border-white/10 hover:border-[#deff9a]/30 transition">
+                <h3 class="text-sm font-black uppercase tracking-widest text-[#deff9a] mb-4">
+                    Our Vision
+                </h3>
+                <p class="text-gray-400 font-medium leading-relaxed">
+                    To become India’s most trusted professional campus media network,
+                    seamlessly integrated across top institutions nationwide.
+                </p>
+            </div>
+
+            <!-- Target Goals -->
+            <div class="glass p-10 rounded-3xl border-white/10 hover:border-[#deff9a]/30 transition">
+                <h3 class="text-sm font-black uppercase tracking-widest text-[#deff9a] mb-4">
+                    Target Goals
+                </h3>
+                <ul class="text-gray-400 font-medium space-y-3 leading-relaxed list-disc list-inside">
+                    <li>Deploy 500+ smart media nodes across Indian campuses</li>
+                    <li>Partner with leading EdTech & technology brands</li>
+                    <li>Maintain a strict career-first content policy</li>
+                    <li>Deliver transparent ROI via real-time analytics</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ================= END ABOUT ADSVERZ ================= -->
+
+<!-- CLIENT CTA -->
+<section class="py-24 px-8 bg-gradient-to-r from-black via-black/80 to-black">
+    <div class="max-w-6xl mx-auto glass rounded-3xl p-16 border border-white/10 text-center">
+
+        <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-6">
+            Ready to <span class="accent-text">Activate</span> Your Campaign?
+        </h2>
+
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+            Reach verified student and professional audiences inside high-impact,
+            institution-approved environments.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="mailto:sales@adsverz.com"
+               class="accent-bg px-12 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:scale-105 transition">
+                Contact Sales
+            </a>
+
+            <a href="#pricing"
+               class="glass px-12 py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white/5 transition">
+                View Rate Card
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER START ================= -->
+<footer class="py-24 px-8 bg-black border-t border-white/5">
+
+    <!-- ===== FOOTER CONTAINER ===== -->
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+
+        <!-- ===== FOOTER : BRAND / LOGO / TAGLINE ===== -->
+        <div class="max-w-md">
+
+            <!-- Logo + Brand Name -->
+            <div class="flex items-center gap-4 mb-8">
+                <!-- ===== FOOTER LOGO IMAGE ===== -->
+<div class="w-10 h-10 rounded-lg overflow-hidden shadow-lg shadow-[#deff9a]/20">
+    <img 
+        src="/assets/logo.png" 
+        alt="Adsverz Logo"
+        class="w-full h-full object-contain"
+    />
+</div>
+
+                <div class="text-3xl font-black tracking-tighter uppercase">
+                    <span class="red-accent">ADSVERZ</span><span class="accent-text">.</span>
+                </div>
+            </div>
+
+            <!-- Tagline -->
+            <p class="text-gray-500 font-bold italic text-xl mb-10 leading-tight">
+                "Every business needs a boost."
+            </p>
+
+            <!-- Social Media Icons -->
+            <div class="flex gap-4">
+                <a href="#" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:accent-bg hover:text-black transition duration-300">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:accent-bg hover:text-black transition duration-300">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass rounded-2xl flex items-center justify-center hover:accent-bg hover:text-black transition duration-300">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
+
+        </div>
+        <!-- ===== END BRAND SECTION ===== -->
+
+
+         <!-- ===== FOOTER : LINKS GRID ===== -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-16 text-xs font-black uppercase tracking-widest">
+
+            <!-- Network Links -->
+        <div>
+            <h5 class="font-medium normal-case text-sm mb-4 tracking-widest">Navigation</h5>
+            <ul class="space-y-4 text-gray-500 text-sm">
+                <li><a href="#home" class="hover:text-white">Start</a></li>
+                <li><a href="#ecosystem" class="hover:text-white">Governance</a></li>
+                <li><a href="#about-us" class="hover:text-white">about us</a></li>
+                <li><a href="#nodes" class="hover:text-white">Network</a></li>
+                <li><a href="#pricing" class="hover:text-white">Rate Card</a></li>
+            </ul>
+        </div>
+
+            <!-- Bengaluru / Address -->
+            <div class="space-y-6">
+                <h5 class="text-white">Bengaluru</h5>
+                <ul class="space-y-4 text-gray-500 font-medium normal-case">
+                    <li>Thammenahalli Village, Soladevanahalli</li>
+                    <li>Bengaluru, Karnataka 560107</li>
+                    <li>adsverz.company@gmail.com</li>
+                    <li>Contact Number: 9591025061</li>
+                </ul>
+            </div>
+
+            <!-- Policy Links -->
+            <div>
+            <h5 class="font-medium normal-case text-sm mb-4 tracking-widest">Legal</h5>
+            <ul class="space-y-4 text-gray-500 text-sm">
+                <li>Content Policy</li>
+                <li>Terms of Service</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+
+    </div>
+        <!-- ===== END LINKS GRID ===== -->
+
+    </div>
+    <!-- ===== END FOOTER CONTAINER ===== -->
+
+
+    <!-- ===== FOOTER : BOTTOM BAR ===== -->
+    <div class="max-w-7xl mx-auto pt-20 mt-20 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-600 font-black uppercase tracking-[0.4em] gap-6 text-center md:text-left">
+        <p>&copy; 2024 Adsverz Advertising Private Limited. Bengaluru.</p>
+        <p class="text-gray-400">Digitizing Professional Campus Life</p>
+    </div>
+    <!-- ===== END BOTTOM BAR ===== -->
+
+</footer>
+<!-- ================= FOOTER END ================= -->

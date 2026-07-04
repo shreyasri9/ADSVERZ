@@ -1,0 +1,301 @@
+ADSVERZ PLATFORM – WEBSITE FEATURES REQUIREMENT DOCUMENT
+1. USER TYPES
+Super Admin (Adsverz Management)
+Full platform access
+Hospital management
+Brand management
+User management
+Revenue management
+Content management
+Analytics dashboard
+Agreement management
+Ticket management
+Hospital Admin
+Hospital profile management
+Screen management
+Content requests
+View reports
+Appointment requests
+Support tickets
+Advertisement approval view
+Performance dashboard
+Brand/Advertiser
+Brand profile
+Campaign creation
+Advertisement upload
+Campaign monitoring
+Analytics access
+Billing access
+Support access
+Team Members
+Hospital survey entry
+Lead management
+Site report upload
+Follow-up tracking
+Agreement status update
+Task management
+2. LANDING WEBSITE
+Home Page
+Company introduction
+Network overview
+Hospital count
+Screen count
+Brand count
+Benefits section
+Process section
+Testimonials
+Contact form
+About Us
+Mission
+Vision
+Team
+Network model
+For Hospitals
+Benefits
+Digital transformation process
+Site survey process
+FAQ
+Registration form
+For Brands
+Advertising opportunities
+Audience reach
+Campaign options
+Inquiry form
+Contact Us
+Contact details
+Form
+Map integration
+3. HOSPITAL MANAGEMENT MODULE
+Hospital Registration
+Hospital name
+Type
+Address
+Contact details
+Decision maker details
+Department information
+Hospital Dashboard
+Profile overview
+Active screens
+Campaign status
+Content status
+Support tickets
+Reports
+Site Survey Module
+Survey form
+Photo uploads
+Video uploads
+Screen recommendations
+Infrastructure assessment
+Infrastructure Module
+Existing screens
+Screen locations
+Screen sizes
+Installation status
+Power availability
+Internet availability
+Agreement Module
+Agreement upload
+Agreement status
+Renewal reminders
+Document archive
+4. SCREEN MANAGEMENT SYSTEM
+Screen Registration
+Screen ID
+Screen name
+Location
+Type
+Size
+Screen Categories
+TV
+Digital Standee
+Kiosk
+Billboard
+Reception Display
+Screen Monitoring
+Online status
+Offline status
+Last sync
+Device health
+Playback status
+Remote Management
+Restart screen
+Update content
+Schedule content
+Screen grouping
+5. CONTENT MANAGEMENT SYSTEM
+Content Library
+Images
+Videos
+PDFs
+Health tips
+Hospital announcements
+Content Categories
+Hospital information
+Doctor information
+Health awareness
+Event promotions
+Advertisements
+Scheduling System
+Date based scheduling
+Time based scheduling
+Screen specific scheduling
+Hospital specific scheduling
+Approval Workflow
+Upload
+Review
+Approve
+Publish
+6. DIGITAL SIGNAGE CONTROL PANEL
+Playlist Creation
+Create playlists
+Assign content
+Set duration
+Set sequence
+Layout Templates
+Full screen
+Split screen
+Vertical display
+Horizontal display
+Ticker display
+Display Templates
+Hospital mode
+Advertisement mode
+Mixed mode
+7. BRAND MANAGEMENT MODULE
+Brand Registration
+Company details
+Contact details
+Industry category
+GST details
+Brand Dashboard
+Active campaigns
+Running advertisements
+Analytics
+Billing
+Campaign Creation
+Campaign name
+Duration
+Target hospitals
+Target locations
+Advertisement Upload
+Images
+Videos
+Posters
+Animated content
+8. CAMPAIGN MANAGEMENT SYSTEM
+Campaign Setup
+Start date
+End date
+Budget
+Target screens
+Campaign Tracking
+Views
+Play count
+Active screens
+Duration played
+Campaign Reports
+Daily reports
+Weekly reports
+Monthly reports
+9. ANALYTICS DASHBOARD
+Network Analytics
+Total hospitals
+Total screens
+Active screens
+Active campaigns
+Hospital Analytics
+Screen uptime
+Content performance
+Campaign performance
+Brand Analytics
+Campaign views
+Reach
+Screen distribution
+10. LEAD MANAGEMENT SYSTEM
+Hospital Leads
+Lead source
+Status
+Follow-up dates
+Assigned executive
+Brand Leads
+Inquiry management
+Follow-up management
+Conversion tracking
+Pipeline Stages
+New
+Contacted
+Interested
+Site Survey
+Proposal Sent
+Agreement Pending
+Signed
+Active
+11. FIELD TEAM MODULE
+Hospital Visit Entry
+Date
+Time
+Executive
+Notes
+Site Survey Upload
+Photos
+Videos
+Measurements
+Recommendations
+Follow-Up Tracking
+Call logs
+Visit logs
+Meeting notes
+12. DOCUMENT MANAGEMENT SYSTEM
+Hospital Documents
+Agreements
+MoUs
+Site reports
+Survey reports
+Brand Documents
+Campaign approvals
+Invoices
+Contracts
+13. SUPPORT SYSTEM
+Ticket Categories
+Technical issues
+Content issues
+Screen issues
+Account issues
+Ticket Features
+Create ticket
+Track ticket
+Comment system
+Status updates
+14. NOTIFICATION SYSTEM
+Email Notifications
+Agreement reminders
+Campaign reminders
+Ticket updates
+WhatsApp Notifications
+Follow-up reminders
+Appointment reminders
+Approval notifications
+In-App Notifications
+Screen offline alerts
+New campaign alerts
+New hospital alerts
+15. BILLING & SUBSCRIPTION MODULE
+Hospital Subscription
+Free Trial
+Active Plan
+Renewal Status
+Brand Billing
+Campaign invoices
+Payment history
+GST invoices
+16. FUTURE FEATURES
+AI Content Generator
+AI Health Tip Generator
+QR Based Patient Engagement
+Appointment Booking Integration
+Feedback Collection System
+Hospital Mobile App
+Brand Mobile App
+Digital Prescription Awareness Module
+Multi-City Network Management
+Franchise Dashboard

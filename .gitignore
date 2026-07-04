@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+dist/
+.npmrc
+
+# Python / Virtual Environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Databases
+*.db
+*.sqlite3
+
+# Environment files
+.env
+
+# System / IDE files
+.DS_Store
+.vscode/
+.idea/

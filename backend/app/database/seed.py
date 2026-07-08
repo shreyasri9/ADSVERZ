@@ -1,3 +1,4 @@
+import os
 from sqlalchemy.orm import Session
 from datetime import datetime
 from app.core import security
@@ -5,8 +6,11 @@ from app.database.session import SessionLocal, Base, engine
 from app.models.all_models import User, Brand, Hospital, Screen, Campaign, Advertisement, SupportTicket
 
 def seed_db(db: Session):
+    admin_email = os.getenv("SEED_ADMIN_EMAIL", "admin@adsverz.com")
+    admin_password = os.getenv("SEED_ADMIN_PASSWORD", "admin123")
+
     # Check if database is already seeded
-    if db.query(User).filter(User.email == "admin@adsverz.com").first():
+    if db.query(User).filter(User.role == "admin").first():
         print("Database already seeded.")
         return
 
@@ -14,8 +18,8 @@ def seed_db(db: Session):
 
     # 1. Create Admin
     admin_user = User(
-        email="admin@adsverz.com",
-        hashed_password=security.get_password_hash("admin123"),
+        email=admin_email,
+        hashed_password=security.get_password_hash(admin_password),
         full_name="Super Admin",
         role="admin"
     )

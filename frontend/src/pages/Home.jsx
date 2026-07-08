@@ -1,14 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, Laptop, GraduationCap, Smartphone, Cpu, 
-  Check, CircleCheck, CircleX, Network, ShieldCheck
+  Check, CircleCheck, CircleX, Network, ShieldCheck,
+  Monitor, Wifi, Zap
 } from 'lucide-react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
 export const Home = () => {
+  // States for interactive widgets
+  const [activeNode, setActiveNode] = useState('RVCE-01');
+  const [budget, setBudget] = useState(20000);
+  const [adSlide, setAdSlide] = useState(0);
+
+  // Cycle ad slide every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAdSlide((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // College node details metadata
+  const nodesData = {
+    'RVCE-01': {
+      name: 'RV College of Engineering',
+      location: 'Main Cafeteria Block',
+      resolution: '4K UltraHD',
+      capacity: '8,500 impressions/mo',
+      type: 'LED Kiosk Display',
+      activeCampaign: 'Dell Student Tech Deals',
+      status: 'Active',
+      color: '#4f75be'
+    },
+    'PESU-01': {
+      name: 'PES University',
+      location: 'Block A Admissions',
+      resolution: '4K UltraHD',
+      capacity: '9,200 impressions/mo',
+      type: 'LED Kiosk Display',
+      activeCampaign: 'Coursera Skill Certificates',
+      status: 'Active',
+      color: '#7e94b2'
+    },
+    'BMS-03': {
+      name: 'BMSIT',
+      location: 'Main Entrance Plaza',
+      resolution: '1080p Digital Standee',
+      capacity: '6,000 impressions/mo',
+      type: 'Smart Standee',
+      activeCampaign: 'Copilot AI Coding Challenge',
+      status: 'Active',
+      color: '#5c6f84'
+    },
+    'AIT-01': {
+      name: 'Acharya Institute of Tech',
+      location: 'Main Lounge Gate 1',
+      resolution: '1440p Smart Billboard',
+      capacity: '7,000 impressions/mo',
+      type: 'Digital Billboard',
+      activeCampaign: 'LinkedIn Premium Hub',
+      status: 'Active',
+      color: '#4f75be'
+    }
+  };
+
   // Animation presets
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -127,62 +185,180 @@ export const Home = () => {
             </div>
           </div>
 
-          {/* Node Grid */}
-          <motion.div 
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          >
-            {/* RVCE */}
-            <motion.div variants={fadeIn} className="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] font-black text-slate-500 uppercase">Node ID: RVCE-01</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
-              </div>
-              <p className="font-bold text-sm text-white">RV College - Cafeteria</p>
-              <div className="h-1 bg-white/10 w-full rounded-full overflow-hidden">
-                <div className="h-full bg-neon-green w-[85%]"></div>
-              </div>
+          {/* Two column interactive grid: Left selector cards, Right visual previewer */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            
+            {/* Left: Interactive Node Selector */}
+            <motion.div 
+              variants={container}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="lg:col-span-3 flex flex-col gap-4"
+            >
+              {/* RVCE */}
+              <motion.div 
+                variants={fadeIn} 
+                onClick={() => setActiveNode('RVCE-01')}
+                className={`glass p-5 rounded-2xl cursor-pointer select-none transition-all duration-300 flex items-center justify-between border ${
+                  activeNode === 'RVCE-01' ? 'border-[#4f75be] bg-[#4f75be]/5 scale-[1.02]' : 'border-white/5 hover:border-white/20'
+                }`}
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-black text-slate-500 uppercase">Node ID: RVCE-01</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+                  </div>
+                  <p className="font-bold text-sm text-white">RV College - Cafeteria</p>
+                </div>
+                <div className="text-right flex flex-col items-end gap-1.5">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">8.5k/mo reach</span>
+                  <span className="px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded bg-[#4f75be]/20 text-[#4f75be] border border-[#4f75be]/10">LED Panel</span>
+                </div>
+              </motion.div>
+
+              {/* PESU */}
+              <motion.div 
+                variants={fadeIn} 
+                onClick={() => setActiveNode('PESU-01')}
+                className={`glass p-5 rounded-2xl cursor-pointer select-none transition-all duration-300 flex items-center justify-between border ${
+                  activeNode === 'PESU-01' ? 'border-[#7e94b2] bg-[#7e94b2]/5 scale-[1.02]' : 'border-white/5 hover:border-white/20'
+                }`}
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-black text-slate-500 uppercase">Node ID: PESU-01</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+                  </div>
+                  <p className="font-bold text-sm text-white">PES University - Block A</p>
+                </div>
+                <div className="text-right flex flex-col items-end gap-1.5">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">9.2k/mo reach</span>
+                  <span className="px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded bg-[#7e94b2]/20 text-[#7e94b2] border border-[#7e94b2]/10">LED Panel</span>
+                </div>
+              </motion.div>
+
+              {/* BMSIT */}
+              <motion.div 
+                variants={fadeIn} 
+                onClick={() => setActiveNode('BMS-03')}
+                className={`glass p-5 rounded-2xl cursor-pointer select-none transition-all duration-300 flex items-center justify-between border ${
+                  activeNode === 'BMS-03' ? 'border-[#5c6f84] bg-[#5c6f84]/5 scale-[1.02]' : 'border-white/5 hover:border-white/20'
+                }`}
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-black text-slate-500 uppercase">Node ID: BMS-03</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+                  </div>
+                  <p className="font-bold text-sm text-white">BMSIT - Main Plaza</p>
+                </div>
+                <div className="text-right flex flex-col items-end gap-1.5">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">6.0k/mo reach</span>
+                  <span className="px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded bg-[#5c6f84]/20 text-[#5c6f84] border border-[#5c6f84]/10">Standee</span>
+                </div>
+              </motion.div>
+
+              {/* Acharya */}
+              <motion.div 
+                variants={fadeIn} 
+                onClick={() => setActiveNode('AIT-01')}
+                className={`glass p-5 rounded-2xl cursor-pointer select-none transition-all duration-300 flex items-center justify-between border ${
+                  activeNode === 'AIT-01' ? 'border-[#4f75be] bg-[#4f75be]/5 scale-[1.02]' : 'border-white/5 hover:border-white/20'
+                }`}
+              >
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-black text-slate-500 uppercase">Node ID: AIT-01</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+                  </div>
+                  <p className="font-bold text-sm text-white">Acharya Institute - Gate 1</p>
+                </div>
+                <div className="text-right flex flex-col items-end gap-1.5">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">7.0k/mo reach</span>
+                  <span className="px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded bg-[#4f75be]/20 text-[#4f75be] border border-[#4f75be]/10">Billboard</span>
+                </div>
+              </motion.div>
             </motion.div>
 
-            {/* PESU */}
-            <motion.div variants={fadeIn} className="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] font-black text-slate-500 uppercase">Node ID: PESU-01</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
-              </div>
-              <p className="font-bold text-sm text-white">PES University - Block A</p>
-              <div className="h-1 bg-white/10 w-full rounded-full overflow-hidden">
-                <div className="h-full bg-neon-green w-[92%]"></div>
-              </div>
-            </motion.div>
+            {/* Right: Simulated TV Screen Previewer */}
+            <div className="lg:col-span-2">
+              <div className="border border-white/10 bg-[#080916] rounded-3xl p-5 md:p-6 flex flex-col justify-between h-[360px] relative overflow-hidden shadow-2xl">
+                {/* Bezels / TV Cam */}
+                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-10 h-1 bg-white/25 rounded-full flex items-center justify-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#4f75be]/75"></span>
+                </div>
+                
+                {/* Visual Ad Screen Area */}
+                <div className="flex-grow flex flex-col items-center justify-center border border-white/5 rounded-2xl bg-[#02030a] relative p-6 mt-4 overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    {adSlide === 0 && (
+                      <motion.div 
+                        key="ad0" 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="text-center flex flex-col items-center justify-center"
+                      >
+                        <Laptop size={32} className="text-[#4f75be] mb-3" />
+                        <h4 className="text-[11px] font-black uppercase text-[#4f75be] tracking-wider leading-tight">DELL STUDENT EXCLUSIVES</h4>
+                        <p className="text-[9px] text-slate-400 mt-2 font-bold max-w-[190px]">Get up to ₹15,000 off XPS notebooks with verified college IDs.</p>
+                      </motion.div>
+                    )}
+                    {adSlide === 1 && (
+                      <motion.div 
+                        key="ad1" 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="text-center flex flex-col items-center justify-center"
+                      >
+                        <GraduationCap size={32} className="text-[#7e94b2] mb-3" />
+                        <h4 className="text-[11px] font-black uppercase text-[#7e94b2] tracking-wider leading-tight">COURSERA CAREER PATHWAYS</h4>
+                        <p className="text-[9px] text-slate-400 mt-2 font-bold max-w-[190px]">Unlock Google and IBM certificate programs at zero cost.</p>
+                      </motion.div>
+                    )}
+                    {adSlide === 2 && (
+                      <motion.div 
+                        key="ad2" 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.4 }}
+                        className="text-center flex flex-col items-center justify-center"
+                      >
+                        <Cpu size={32} className="text-[#5c6f84] mb-3" />
+                        <h4 className="text-[11px] font-black uppercase text-[#5c6f84] tracking-wider leading-tight">GITHUB COPILOT STUDENT</h4>
+                        <p className="text-[9px] text-slate-400 mt-2 font-bold max-w-[190px]">Claim your free subscription to code smarter, faster, and easier.</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-            {/* BMSIT */}
-            <motion.div variants={fadeIn} className="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] font-black text-slate-500 uppercase">Node ID: BMS-03</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
-              </div>
-              <p className="font-bold text-sm text-white">BMSIT - Main Plaza</p>
-              <div className="h-1 bg-white/10 w-full rounded-full overflow-hidden">
-                <div className="h-full bg-neon-green w-[60%]"></div>
-              </div>
-            </motion.div>
+                  {/* Active node details tag */}
+                  <div className="absolute bottom-2 left-3 right-3 flex justify-between items-center text-[7px] text-slate-500 font-black tracking-widest uppercase">
+                    <span className="flex items-center gap-1.5"><Wifi size={10} className="text-green-500" /> ONLINE</span>
+                    <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-ping"></span> Live Broadcast</span>
+                  </div>
+                </div>
 
-            {/* Acharya */}
-            <motion.div variants={fadeIn} className="glass p-6 rounded-2xl border-white/5 flex flex-col gap-4">
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] font-black text-slate-500 uppercase">Node ID: AIT-01</span>
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                {/* Display Specs Footer */}
+                <div className="mt-4 border-t border-white/5 pt-3.5 flex justify-between items-center">
+                  <div className="overflow-hidden pr-2">
+                    <span className="text-[7px] font-black uppercase text-slate-500 tracking-widest block">Active Screen Node</span>
+                    <span className="font-bold text-white text-[10px] truncate block">{nodesData[activeNode].name}</span>
+                  </div>
+                  <div className="text-right shrink-0 border-l border-white/5 pl-4">
+                    <span className="text-[7px] font-black uppercase text-slate-500 tracking-widest block">Sync Spec</span>
+                    <span className="font-black text-[#4f75be] text-[10px]">{nodesData[activeNode].resolution}</span>
+                  </div>
+                </div>
+
               </div>
-              <p className="font-bold text-sm text-white">Acharya Institute - Gate 1</p>
-              <div className="h-1 bg-white/10 w-full rounded-full overflow-hidden">
-                <div className="h-full bg-neon-green w-[70%]"></div>
-              </div>
-            </motion.div>
-          </motion.div>
+            </div>
+
+          </div>
 
         </div>
       </section>
@@ -261,10 +437,11 @@ export const Home = () => {
       </section>
 
       {/* RATE CARD */}
-      <section id="pricing" className="py-32 px-6 md:px-8 bg-[#080808]">
+      {/* RATE CARD */}
+      <section id="pricing" className="py-32 px-6 md:px-8 bg-[#0b0f19] border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-5xl md:text-7xl font-black mb-4 tracking-tighter uppercase italic font-outfit">
               The Rate <span className="accent-text font-jakarta">Card.</span>
             </h2>
@@ -273,9 +450,61 @@ export const Home = () => {
             </p>
           </div>
 
+          {/* Interactive Calculator Slider Widget */}
+          <div className="glass p-8 rounded-3xl border-white/5 max-w-3xl mx-auto mb-16 flex flex-col gap-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/5 pb-4">
+              <div>
+                <h3 className="text-lg font-black uppercase text-white font-outfit">Interactive Campaign Calculator</h3>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-1">Estimate your targeted student impressions & reach</p>
+              </div>
+              <div className="bg-[#111827] border border-white/5 px-5 py-2.5 rounded-2xl flex items-baseline gap-1 shadow-lg shrink-0">
+                <span className="text-[10px] font-black text-slate-500 uppercase mr-1">Budget:</span>
+                <span className="text-2xl font-black text-[#4f75be]">₹{(budget).toLocaleString()}</span>
+                <span className="text-slate-500 text-[10px] font-bold">/mo</span>
+              </div>
+            </div>
+
+            {/* Range Slider */}
+            <div className="flex flex-col gap-2.5">
+              <input 
+                type="range" 
+                min="8000" 
+                max="80000" 
+                step="2000" 
+                value={budget} 
+                onChange={(e) => setBudget(Number(e.target.value))}
+                className="w-full h-1.5 bg-[#1f2937] rounded-lg appearance-none cursor-pointer accent-[#4f75be]" 
+              />
+              <div className="flex justify-between text-[9px] font-black text-slate-500 uppercase tracking-widest mt-1">
+                <span>Min: ₹8,000</span>
+                <span>Mid: ₹44,000</span>
+                <span>Max: ₹80,000+</span>
+              </div>
+            </div>
+
+            {/* Calculated Metrics Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="border border-white/5 bg-[#0b0f19] p-4 rounded-2xl">
+                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest block mb-1">Est. Impressions</span>
+                <span className="text-lg font-black text-white flex items-center gap-2"><Zap size={14} className="text-[#4f75be]" /> {(budget * 1.25).toLocaleString()}/mo</span>
+              </div>
+              <div className="border border-white/5 bg-[#0b0f19] p-4 rounded-2xl">
+                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest block mb-1">Student Eyeballs</span>
+                <span className="text-lg font-black text-white flex items-center gap-2"><Network size={14} className="text-[#7e94b2]" /> {(budget * 0.45).toLocaleString()}/mo</span>
+              </div>
+              <div className="border border-white/5 bg-[#0b0f19] p-4 rounded-2xl">
+                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest block mb-1">Campus Nodes</span>
+                <span className="text-lg font-black text-white flex items-center gap-2"><Monitor size={14} className="text-[#5c6f84]" /> {budget < 15000 ? "1 Campus" : budget < 35000 ? "2 Campuses" : "4 Campuses"}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Pricing cards wrapper */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             {/* Skill Launcher */}
-            <div className="glass p-10 rounded-[2.5rem] pricing-card flex flex-col justify-between">
+            <div className={`glass p-10 rounded-[2.5rem] pricing-card flex flex-col justify-between transition-all duration-300 border ${
+              budget < 15000 ? 'border-[#4f75be] bg-[#4f75be]/5 scale-102 shadow-[0_0_20px_rgba(79,117,190,0.06)]' : 'border-white/5 opacity-60'
+            }`}>
               <div>
                 <h3 className="text-xl font-black mb-2 text-white font-outfit">Skill Launcher</h3>
                 <p className="text-[10px] font-black text-slate-500 mb-10 tracking-widest uppercase">Local Training Hubs</p>
@@ -284,48 +513,52 @@ export const Home = () => {
                   <span className="text-slate-600 text-xs font-bold"> /mo per campus</span>
                 </div>
                 <ul className="space-y-4 text-slate-400 font-bold text-xs">
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> 15s Static Ad Loop</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Single Department Focus</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> QR Performance Tracking</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> 15s Static Ad Loop</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> Single Department Focus</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> QR Performance Tracking</li>
                 </ul>
               </div>
               <Link 
-                to="/register?role=brand"
-                className="mt-12 w-full py-4 rounded-xl border-2 border-neon-green accent-text font-black hover:bg-neon-green hover:text-black transition uppercase tracking-widest text-[10px] text-center"
+                to={`/register?role=brand&budget=${budget}`}
+                className="mt-12 w-full py-4 rounded-xl border-2 border-[#4f75be] text-[#4f75be] font-black hover:bg-[#4f75be] hover:text-black transition uppercase tracking-widest text-[10px] text-center"
               >
                 Request Slot
               </Link>
             </div>
 
             {/* Tech Titan */}
-            <div className="glass p-10 rounded-[2.5rem] border-2 border-neon-green pricing-card scale-100 lg:scale-105 flex flex-col justify-between relative bg-neon-green/5">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 accent-bg px-6 py-1.5 rounded-full text-[9px] font-black tracking-[0.25em] uppercase whitespace-nowrap">
+            <div className={`glass p-10 rounded-[2.5rem] pricing-card flex flex-col justify-between transition-all duration-300 relative border ${
+              budget >= 15000 && budget < 35000 ? 'border-[#7e94b2] bg-[#7e94b2]/5 scale-102 shadow-[0_0_20px_rgba(126,148,178,0.06)]' : 'border-white/5 opacity-60'
+            }`}>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#7e94b2] text-black px-6 py-1.5 rounded-full text-[9px] font-black tracking-[0.25em] uppercase whitespace-nowrap">
                 Recommended for Tech Brands
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-black mb-2 text-neon-green font-outfit">Tech Titan</h3>
+                <h3 className="text-xl font-black mb-2 text-[#7e94b2] font-outfit">Tech Titan</h3>
                 <p className="text-[10px] font-black text-slate-400 mb-10 tracking-widest uppercase italic">High Frequency Hardware & SaaS</p>
                 <div className="mb-10">
                   <span className="text-5xl font-black italic">₹20k</span>
                   <span className="text-slate-600 text-xs font-bold"> /mo per campus</span>
                 </div>
                 <ul className="space-y-4 text-slate-300 font-bold text-xs">
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> 30s 4K Motion Graphics</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Prime Cafeteria Placement</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Product Launch Mentions</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Reach Data Reports</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#7e94b2]" /> 30s 4K Motion Graphics</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#7e94b2]" /> Prime Cafeteria Placement</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#7e94b2]" /> Product Launch Mentions</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#7e94b2]" /> Reach Data Reports</li>
                 </ul>
               </div>
               <Link 
-                to="/register?role=brand"
-                className="mt-12 w-full accent-bg py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:scale-[1.02] transition shadow-lg shadow-neon-green/20 text-center"
+                to={`/register?role=brand&budget=${budget}`}
+                className="mt-12 w-full bg-[#7e94b2] text-black py-4 rounded-xl font-black text-[10px] uppercase tracking-widest hover:scale-[1.02] transition shadow-lg shadow-[#7e94b2]/20 text-center"
               >
                 Request Slot
               </Link>
             </div>
 
             {/* Network Leader */}
-            <div className="glass p-10 rounded-[2.5rem] pricing-card flex flex-col justify-between">
+            <div className={`glass p-10 rounded-[2.5rem] pricing-card flex flex-col justify-between transition-all duration-300 border ${
+              budget >= 35000 ? 'border-[#4f75be] bg-[#4f75be]/5 scale-102 shadow-[0_0_20px_rgba(79,117,190,0.06)]' : 'border-white/5 opacity-60'
+            }`}>
               <div>
                 <h3 className="text-xl font-black mb-2 text-white font-outfit">Network Leader</h3>
                 <p className="text-[10px] font-black text-slate-500 mb-10 tracking-widest uppercase">Multi-Campus Blitz</p>
@@ -334,19 +567,22 @@ export const Home = () => {
                   <span className="text-slate-600 text-xs font-bold"> /mo / 3 campuses</span>
                 </div>
                 <ul className="space-y-4 text-slate-400 font-bold text-xs">
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Priority Network-Wide Sync</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Career Workshop Inclusion</li>
-                  <li className="flex items-center gap-3"><Check size={14} className="accent-text" /> Direct App-Install QR Links</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> Priority Network-Wide Sync</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> Career Workshop Inclusion</li>
+                  <li className="flex items-center gap-3"><Check size={14} className="text-[#4f75be]" /> Direct App-Install QR Links</li>
                 </ul>
               </div>
               <Link 
-                to="/register?role=brand"
-                className="mt-12 w-full py-4 rounded-xl border-2 border-neon-green accent-text font-black hover:bg-neon-green hover:text-black transition uppercase tracking-widest text-[10px] text-center"
+                to={`/register?role=brand&budget=${budget}`}
+                className="mt-12 w-full py-4 rounded-xl border-2 border-[#4f75be] text-[#4f75be] font-black hover:bg-[#4f75be] hover:text-black transition uppercase tracking-widest text-[10px] text-center"
               >
                 Request Slot
               </Link>
             </div>
           </div>
+
+        </div>
+      </section>
 
         </div>
       </section>

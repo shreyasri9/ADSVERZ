@@ -199,15 +199,15 @@ export const HospitalDashboard = ({ initialTab = 'overview' }) => {
               
               {/* Stats row */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.02)] transition-all duration-300">
+                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 transition-all duration-300">
                   <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Registered Screens</span>
                   <h3 className="text-5xl font-black mt-3 font-outfit tracking-tighter text-white">{screens.length}</h3>
                 </div>
-                <div className="glass p-8 rounded-[2rem] border-neon-green/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.05)] transition-all duration-300">
+                <div className="glass p-8 rounded-[2rem] border-neon-green/10 hover:border-neon-green/20 transition-all duration-300">
                   <span className="text-[9px] font-black uppercase tracking-[0.25em] text-neon-green">Live Hardware Nodes</span>
                   <h3 className="text-5xl font-black mt-3 text-neon-green font-outfit tracking-tighter">{onlineScreens.length}</h3>
                 </div>
-                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.02)] transition-all duration-300">
+                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 transition-all duration-300">
                   <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Approved Campaigns</span>
                   <h3 className="text-5xl font-black mt-3 text-white font-outfit tracking-tighter">{campaigns.length}</h3>
                 </div>

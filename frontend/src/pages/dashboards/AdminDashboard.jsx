@@ -184,7 +184,7 @@ export const AdminDashboard = ({ initialTab = 'overview' }) => {
               
               {/* Counters */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.02)] transition-all duration-300 flex flex-col justify-between">
+                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 transition-all duration-300 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Brands</span>
                     <Building size={16} className="text-slate-500" />
@@ -192,7 +192,7 @@ export const AdminDashboard = ({ initialTab = 'overview' }) => {
                   <h3 className="text-5xl font-black mt-4 font-outfit tracking-tighter text-white">{stats.total_brands}</h3>
                 </div>
 
-                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.02)] transition-all duration-300 flex flex-col justify-between">
+                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 transition-all duration-300 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Campuses</span>
                     <Users size={16} className="text-slate-500" />
@@ -200,7 +200,7 @@ export const AdminDashboard = ({ initialTab = 'overview' }) => {
                   <h3 className="text-5xl font-black mt-4 font-outfit tracking-tighter text-white">{stats.total_hospitals}</h3>
                 </div>
 
-                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.02)] transition-all duration-300 flex flex-col justify-between">
+                <div className="glass p-8 rounded-[2rem] border-white/10 hover:border-neon-green/20 transition-all duration-300 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Screens</span>
                     <Monitor size={16} className="text-slate-500" />
@@ -208,7 +208,7 @@ export const AdminDashboard = ({ initialTab = 'overview' }) => {
                   <h3 className="text-5xl font-black mt-4 font-outfit tracking-tighter text-white">{stats.total_screens}</h3>
                 </div>
 
-                <div className="glass p-8 rounded-[2rem] border-neon-green/10 hover:border-neon-green/20 hover:shadow-[0_15px_30px_rgba(222,255,154,0.05)] transition-all duration-300 flex flex-col justify-between">
+                <div className="glass p-8 rounded-[2rem] border-neon-green/10 hover:border-neon-green/20 transition-all duration-300 flex flex-col justify-between">
                   <div className="flex justify-between items-start">
                     <span className="text-[9px] font-black uppercase tracking-[0.25em] text-neon-green">Active Loops</span>
                     <Sparkles size={16} className="text-neon-green" />

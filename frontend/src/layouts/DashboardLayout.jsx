@@ -5,6 +5,7 @@ import {
   LayoutDashboard, Megaphone, Monitor, LifeBuoy, User as UserIcon, 
   LogOut, ShieldAlert, Settings, Menu, X, ArrowLeft
 } from 'lucide-react';
+import { Logo } from '../components/Logo';
 
 export const DashboardLayout = ({ children, title }) => {
   const { user, logout } = useAuth();
@@ -68,19 +69,9 @@ export const DashboardLayout = ({ children, title }) => {
       {/* SIDEBAR FOR DESKTOP */}
       <aside className="hidden lg:flex flex-col w-64 glass border-r border-white/5 bg-black/60 shrink-0 select-none">
         {/* Brand Banner */}
-        <div className="p-8 border-b border-white/5 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-logo-red flex items-center justify-center font-black text-white text-base shadow-[0_0_12px_rgba(204,0,0,0.3)]">
-              A
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-black tracking-tighter leading-none font-outfit">
-                ADSVERZ<span className="accent-text">.</span>
-              </span>
-              <span className="text-[7px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                Console Panel
-              </span>
-            </div>
+        <div className="p-6 border-b border-white/5 flex items-center justify-between">
+          <Link to="/">
+            <Logo tagline="Console Panel" />
           </Link>
         </div>
 
@@ -151,9 +142,7 @@ export const DashboardLayout = ({ children, title }) => {
             {title || 'Adsverz Board'}
           </span>
           
-          <div className="w-8 h-8 rounded-lg bg-logo-red flex items-center justify-center font-black text-white text-sm">
-            A
-          </div>
+          <Logo showText={false} />
         </header>
 
         {/* Mobile Sidebar overlay */}
@@ -175,9 +164,8 @@ export const DashboardLayout = ({ children, title }) => {
               </button>
 
               <div className="mb-8 mt-2">
-                <Link to="/" onClick={() => setSidebarOpen(false)} className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-lg bg-logo-red flex items-center justify-center font-black text-white text-sm">A</div>
-                  <span className="text-md font-black font-outfit uppercase">ADSVERZ<span className="accent-text">.</span></span>
+                <Link to="/" onClick={() => setSidebarOpen(false)}>
+                  <Logo tagline="Console Mobile" />
                 </Link>
               </div>
 

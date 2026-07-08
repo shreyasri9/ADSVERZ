@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Logo } from './Logo';
 
 export const Footer = () => {
   const navigate = useNavigate();
@@ -23,13 +24,8 @@ export const Footer = () => {
         
         {/* Brand / Logo / Tagline */}
         <div className="max-w-md">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-10 h-10 rounded-lg bg-logo-red flex items-center justify-center font-black text-white text-xl shadow-[0_0_15px_rgba(204,0,0,0.4)]">
-              A
-            </div>
-            <div className="text-2xl font-black tracking-tighter uppercase font-outfit">
-              <span className="red-accent">ADSVERZ</span><span className="accent-text">.</span>
-            </div>
+          <div className="mb-6">
+            <Logo tagline="Console Dashboard" />
           </div>
 
           <p className="text-slate-500 font-bold italic text-lg mb-8 leading-tight">

@@ -7,11 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'neon-green': '#deff9a',
-        'logo-red': '#CC0000',
-        'bg-dark': '#050505',
-        'card-dark': '#0f0f0f',
-        'text-slate': '#94a3b8',
+        'neon-green': '#4f75be',
+        'logo-red': '#7e94b2',
+        'bg-dark': '#0b0f19',
+        'card-dark': '#111827',
+        'text-slate': '#9ca3af',
+        'border-slate': '#1f2937',
       },
       fontFamily: {
         outfit: ['Outfit', 'sans-serif'],

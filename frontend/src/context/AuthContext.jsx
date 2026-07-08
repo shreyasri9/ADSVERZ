@@ -58,6 +58,10 @@ export const AuthProvider = ({ children }) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
       return loggedUser;
     } catch (error) {
+      console.error("Login failed:", error);
+      if (error.response && typeof error.response.data === 'string' && error.response.data.trim().startsWith('<')) {
+        console.warn("DIAGNOSTIC: Received HTML instead of JSON. Your frontend is likely making API calls to Vercel itself instead of your Railway backend. Please check VITE_API_BASE_URL.");
+      }
       const errorMsg = error.response?.data?.detail || "Authentication failed.";
       throw new Error(errorMsg);
     }
@@ -69,6 +73,10 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post('/api/v1/auth/register', payload);
       return response.data;
     } catch (error) {
+      console.error("Registration failed:", error);
+      if (error.response && typeof error.response.data === 'string' && error.response.data.trim().startsWith('<')) {
+        console.warn("DIAGNOSTIC: Received HTML instead of JSON. Your frontend is likely making API calls to Vercel itself instead of your Railway backend. Please check VITE_API_BASE_URL.");
+      }
       const errorMsg = error.response?.data?.detail || "Registration failed.";
       throw new Error(errorMsg);
     }

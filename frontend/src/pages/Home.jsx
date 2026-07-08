@@ -584,9 +584,6 @@ export const Home = () => {
         </div>
       </section>
 
-        </div>
-      </section>
-
       {/* BUSINESS MODEL CANVAS (STRATEGY & ARCHITECTURE) */}
       <section id="bmc" className="py-32 px-6 md:px-8 bg-white text-black">
         <div className="max-w-7xl mx-auto">
